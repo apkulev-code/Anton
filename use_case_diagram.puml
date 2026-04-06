@@ -1,0 +1,24 @@
+@startuml
+left to right direction
+actor "Реми (Крыса)" as Remy
+actor "Лингвини (Повар)" as Linguini
+actor "Критик" as Critic
+
+rectangle "Рататуй - Удаленное управление" {
+  usecase "Приготовить суп" as UC1
+  usecase "Спрятать крысу" as UC2
+  usecase "Управлять поваром" as UC3
+  usecase "Пройти проверку критика" as UC4
+  usecase "Нарезать овощи" as UC5
+  usecase "Дергать за волосы" as UC6
+}
+
+Remy --> UC3
+Remy --> UC6
+Remy --> UC2
+Linguini --> UC1
+Linguini --> UC5
+Critic --> UC4
+UC3 .> UC1 : <<include>>
+UC6 .> UC5 : <<include>>
+@enduml
