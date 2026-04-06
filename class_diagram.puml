@@ -1,0 +1,32 @@
+@startuml
+class Remy {
+  -position: String
+  +pullHair(signal: Signal)
+  +hide()
+  +sendCommand(command: String)
+}
+
+class Linguini {
+  -state: String
+  -handPosition: String
+  +cookDish(dishName: String)
+  +moveHand(direction: String)
+  +panic()
+}
+
+class Dish {
+  -name: String
+  -ingredients: List
+  +prepare()
+  +serve()
+}
+
+class Signal {
+  -type: String
+  -intensity: int
+}
+
+Remy --> Signal : sends
+Remy --> Linguini : controls
+Linguini --> Dish : prepares
+@enduml
