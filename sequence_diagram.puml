@@ -1,0 +1,17 @@
+@startuml
+actor Remy
+participant "Linguini\n(Повар)" as Linguini
+participant "Dish\n(Блюдо)" as Dish
+
+Remy -> Linguini: pullHair(signal: moveLeft)
+activate Linguini
+Linguini -> Linguini: moveHand(left)
+Remy -> Linguini: pullHair(signal: chop)
+Linguini -> Linguini: chopVegetables()
+Linguini -> Dish: cookDish("Суп")
+activate Dish
+Dish --> Linguini: готово
+deactivate Dish
+Linguini --> Remy: сигнал готовности
+deactivate Linguini
+@enduml
