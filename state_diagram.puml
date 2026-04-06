@@ -1,0 +1,27 @@
+@startuml
+[*] --> Idle : ожидание команд
+
+Idle --> Controlled : Реми дергает за волосы
+Controlled --> Idle : отпустить волосы
+Controlled --> Panic : критик появился
+Panic --> Controlled : критик ушел
+Panic --> Idle : успокоиться
+
+state Idle {
+  [*] --> waiting
+  waiting --> thinking : о рецепте
+  thinking --> waiting
+}
+
+state Controlled {
+  [*] --> receivingSignals
+  receivingSignals --> cooking : выполнение команд
+  cooking --> receivingSignals
+}
+
+state Panic {
+  [*] --> hiding
+  hiding --> sweating
+  sweating --> hiding
+}
+@enduml
